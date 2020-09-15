@@ -8,6 +8,8 @@ cmake_minimum_required(VERSION 3.0)
 
 project(BoringSSL LANGUAGES C CXX)
 
+set(OPENSSL_NO_ASM "1")
+
 if(CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   set(CLANG 1)
 endif()
@@ -93,6 +95,8 @@ elseif(${CMAKE_SYSTEM_PROCESSOR} STREQUAL "mips")
   set(ARCH "generic")
 elseif(${CMAKE_SYSTEM_PROCESSOR} STREQUAL "ppc64le")
   set(ARCH "ppc64le")
+elseif(${CMAKE_SYSTEM_PROCESSOR} STREQUAL "riscv64")
+  set(ARCH "rv64")
 else()
   message(FATAL_ERROR "Unknown processor:" ${CMAKE_SYSTEM_PROCESSOR})
 endif()

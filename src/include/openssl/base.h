@@ -119,7 +119,11 @@ extern "C" {
 // little-endian architectures. Functions will not produce the correct answer
 // on other systems. Run the crypto_test binary, notably
 // crypto/compiler_test.cc, before adding a new architecture.
-#error "Unknown target CPU"
+
+//#error "Unknown target CPU"
+
+#define OPENSSL_64_BIT
+
 #endif
 
 #if defined(__APPLE__)
